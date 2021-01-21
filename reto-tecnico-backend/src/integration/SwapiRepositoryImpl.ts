@@ -1,14 +1,8 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
-// eslint-disable-next-line import/extensions
 import { SwapiRepository } from '../domain/repositories/SwapiRepository';
-// eslint-disable-next-line import/no-unresolved,import/extensions
 import { RootResponse } from '../domain/repositories/model/RootResponse';
-// eslint-disable-next-line import/extensions
 import { TranslateRootResponse } from '../domain/repositories/model/TranslatedRootResponse';
-// eslint-disable-next-line import/namespace,import/named,import/extensions
 import { TranslatedStarShipsResponse } from '../domain/repositories/model/TranslatedStarShipsResponse';
-// eslint-disable-next-line import/extensions
 import { StarShipsResponse } from '../domain/repositories/model/StarShipsResponse';
 
 export class SwapiRepositoryImpl implements SwapiRepository {
