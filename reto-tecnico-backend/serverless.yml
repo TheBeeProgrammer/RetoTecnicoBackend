@@ -1,5 +1,5 @@
 service:
-  name: sls-template
+  name: reto-tecnico-backend
 
 custom:
   webpack:
@@ -8,10 +8,10 @@ custom:
   serverless-iam-roles-per-function:
     defaultInherit: true
   globalTables:
-    regions: # list of regions in which you want to set up global tables
+    regions:
       - us-east-1
     createStack: false
-  prune: # automatically prune old lambda versions
+  prune:
     automatic: true
     number: 3
 
