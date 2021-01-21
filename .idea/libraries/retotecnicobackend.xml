@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="retotecnicobackend">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/reto-tecnico-backend/.serverless/retotecnicobackend.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
