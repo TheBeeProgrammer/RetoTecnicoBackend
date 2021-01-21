@@ -28,7 +28,8 @@
     "@dazn/lambda-powertools-sqs-client": "^1.23.0",
     "aws-lambda": "^1.0.5",
     "aws-sdk": "^2.656.0",
-    "source-map-support": "^0.5.10"
+    "source-map-support": "^0.5.10",
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -39,7 +40,6 @@
     "@types/node": "^10.17.19",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
-    "axios": "^0.21.1",
     "babel-jest": "^25.3.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
