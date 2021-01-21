@@ -9,7 +9,7 @@ custom:
     defaultInherit: true
   globalTables:
     regions: # list of regions in which you want to set up global tables
-      - us-east-1 # Ohio (default region to date for stack)
+      - us-east-1
     createStack: false
   prune: # automatically prune old lambda versions
     automatic: true
@@ -27,7 +27,7 @@ provider:
   runtime: nodejs12.x
   frameworkVersion: ‘1.64.1’
   stage: ${opt:stage, 'local'}
-  region: ${opt:region, 'us-east-2'}
+  region: ${opt:region, 'us-east-1'}
   apiGateway:
     minimumCompressionSize: 1024
   environment:
@@ -62,3 +62,19 @@ functions:
       - http:
           method: get
           path: starShips
+
+resources:
+  Resources:
+      usersTable:
+        Type: AWS::DynamoDB::Table
+        Properties:
+          TableName: employee
+          AttributeDefinitions:
+            - AttributeName: dni
+              AttributeType: S
+          KeySchema:
+            - AttributeName: dni
+              KeyType: HASH
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
