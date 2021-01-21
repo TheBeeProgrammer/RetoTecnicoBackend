@@ -1,7 +1,10 @@
+// eslint-disable-next-line import/extensions
 import { SwapiService } from './SwapiService';
+// eslint-disable-next-line import/extensions
 import { TranslateRootResponse } from '../domain/repositories/model/TranslatedRootResponse';
+// eslint-disable-next-line import/extensions
 import { TranslatedStarShipsResponse } from '../domain/repositories/model/TranslatedStarShipsResponse';
-// eslint-disable-next-line import/namespace,import/named
+// eslint-disable-next-line import/namespace,import/named,import/extensions
 import { SwapiRepositoryImpl } from '../integration/SwapiRepositoryImpl';
 
 

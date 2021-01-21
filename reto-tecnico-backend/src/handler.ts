@@ -1,6 +1,8 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import 'source-map-support/register';
+// eslint-disable-next-line import/no-unresolved
 import { echo } from '@lib/exampleQuery';
+// eslint-disable-next-line import/extensions
 import { SwapiServiceImpl } from './service/SwapiServiceImpl';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
