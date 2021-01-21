@@ -62,19 +62,25 @@ functions:
       - http:
           method: get
           path: starShips
+  employeeCreate:
+    handler: src/handler.employeeCreate
+    events:
+      - http:
+          method: post
+          path: register-employee
 
 resources:
   Resources:
-      usersTable:
-        Type: AWS::DynamoDB::Table
-        Properties:
-          TableName: employee
-          AttributeDefinitions:
-            - AttributeName: dni
-              AttributeType: S
-          KeySchema:
-            - AttributeName: dni
-              KeyType: HASH
-          ProvisionedThroughput:
-            ReadCapacityUnits: 1
-            WriteCapacityUnits: 1
+    usersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: employee
+        AttributeDefinitions:
+          - AttributeName: dni
+            AttributeType: S
+        KeySchema:
+          - AttributeName: dni
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
