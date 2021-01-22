@@ -15,6 +15,8 @@
 ## For test:
 
 > npm run test
+>
+>[![s.png](https://i.postimg.cc/jjBqZyZ4/s.png)](https://postimg.cc/CZHVKnyR)
 
 ## For build:
 
