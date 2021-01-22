@@ -73,19 +73,3 @@ functions:
       - http:
           method: get
           path: /employee/{dni}
-resources:
-  Resources:
-    employeesTable:
-      Type: AWS::DynamoDB::Table
-      DeletionPolicy: Retain
-      Properties:
-        TableName: ${self:provider.environment.EMPLOYEE_TABLE}
-        AttributeDefinitions:
-          - AttributeName: dni
-            AttributeType: S
-        KeySchema:
-          - AttributeName: dni
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1

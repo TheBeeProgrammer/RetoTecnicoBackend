@@ -22,7 +22,8 @@
 
 ## For deploy:
 
-> serverless deploy
+> serverless deploy<br />
+>![loading image](https://ibb.co/0Y9sP1f) 
 
 ## Todo:
 
