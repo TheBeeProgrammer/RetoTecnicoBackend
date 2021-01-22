@@ -75,10 +75,11 @@ functions:
           path: /employee/{dni}
 resources:
   Resources:
-    employee:
+    employeesTable:
       Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
       Properties:
-        TableName: employee
+        TableName: ${self:provider.environment.EMPLOYEE_TABLE}
         AttributeDefinitions:
           - AttributeName: dni
             AttributeType: S
