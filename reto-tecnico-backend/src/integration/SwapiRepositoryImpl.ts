@@ -9,6 +9,7 @@ export class SwapiRepositoryImpl implements SwapiRepository {
     private readonly ROOT_API_URL = 'https://swapi.py4e.com/api/'
 
     /** retorna los valores traducidos del response del api base
+     *
      * se mapea los valores originales y luego se retorna un modelo con los valores traducidos
      */
     async getSwapiTranslatedRootResponse(): Promise<TranslateRootResponse> {
@@ -27,6 +28,7 @@ export class SwapiRepositoryImpl implements SwapiRepository {
     }
 
     /** retorna los valores traducidos del response del api StarShips
+     *
      * se mapea los valores originales y luego se retorna un modelo con los valores traducidos
      */
     async getSwapiTranslatedStarShipsResponse(): Promise<TranslatedStarShipsResponse> {

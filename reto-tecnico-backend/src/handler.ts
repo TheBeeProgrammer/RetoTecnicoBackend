@@ -1,22 +1,8 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import 'source-map-support/register';
-// eslint-disable-next-line import/no-unresolved
-import { echo } from '@lib/exampleQuery';
 import { SwapiServiceImpl } from './service/SwapiServiceImpl';
 import { EmployeeServiceImpl } from './service/EmployeeServiceImpl';
 import { Employee } from './domain/repositories/model/Employee';
-
-
-export const hello: APIGatewayProxyHandler = async (event, _context) => ({
-  statusCode: 200,
-  body: JSON.stringify(
-    {
-      message: echo('Module aliasing is really the more best'),
-      input: event,
-    },
-    null,
-  ),
-});
 
 export const rootData: APIGatewayProxyHandler = async (event, context) => {
   console.log(event, 'event');
@@ -53,7 +39,7 @@ export const employeeCreate: APIGatewayProxyHandler = async (event) => {
   await employeeServiceImpl.saveEmployee(JSON.parse(event.body) as Employee);
   const response = { Message: 'success', Code: '200' };
   return {
-    statusCode: 201,
+    statusCode: 200,
     body: JSON.stringify(response),
   };
 };
@@ -63,7 +49,7 @@ export const getEmployee: APIGatewayProxyHandler = async (event) => {
   const employeeServiceImpl = new EmployeeServiceImpl();
 
   if (event.pathParameters == null) throw new Error('EMPTY PATH PARAM');
-  const employeeResponse = await employeeServiceImpl.getEmployeeByDni(event.pathParameters.dni);
+  const employeeResponse = await employeeServiceImpl.getEmployee(event.pathParameters.dni);
   return {
     statusCode: 200,
     body: JSON.stringify(

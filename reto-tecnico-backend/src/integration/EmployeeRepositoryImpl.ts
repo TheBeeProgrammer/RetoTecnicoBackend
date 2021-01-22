@@ -6,7 +6,10 @@ import { Employee } from '../domain/repositories/model/Employee';
 export class EmployeeRepositoryImpl implements EmployeeRepository {
     documentClient = new aws.DynamoDB.DocumentClient({ region: 'us-east-1' });
 
-
+    /** registra un empleado en dynamo
+     *
+     * @param employee: entidad a guardar
+     */
     async createEmployee(employee: Employee): Promise<void> {
       const params = {
         TableName: 'employee',
@@ -16,7 +19,11 @@ export class EmployeeRepositoryImpl implements EmployeeRepository {
       console.log(data);
     }
 
-    async getEmployee(dni: string): Promise<Employee> {
+    /** obtiene un empleado en base a su dni
+     *
+     * @param dni: parametro a buscar
+     */
+    async getEmployeeByDni(dni: string): Promise<Employee> {
       const params = {
         TableName: 'employee',
         KeyConditionExpression: 'dni = :dni',

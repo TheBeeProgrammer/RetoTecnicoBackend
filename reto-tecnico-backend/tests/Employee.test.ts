@@ -6,7 +6,7 @@ const employeeService = new EmployeeServiceImpl();
 describe('get employee', () => {
   // eslint-disable-next-line jest/prefer-expect-assertions
   it('should take the dni employee and return an Employee', async () => {
-    const response = await employeeService.getEmployeeByDni('12345678');
+    const response = await employeeService.getEmployee('12345678');
     expect(response).toBeDefined();
   });
 });

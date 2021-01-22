@@ -12,9 +12,9 @@ export class EmployeeServiceImpl implements EmployeeService {
       await this.employeeRepository.createEmployee(employee);
     }
 
-    async getEmployeeByDni(dni: string): Promise<Employee> {
+    async getEmployee(dni: string): Promise<Employee> {
       if (dni.length !== 8) throw new Error('DNI INVALIDO');
-      const employee = await this.employeeRepository.getEmployee(dni);
+      const employee = await this.employeeRepository.getEmployeeByDni(dni);
       return employee;
     }
 }
