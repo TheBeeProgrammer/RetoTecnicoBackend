@@ -23,7 +23,7 @@
 ## For deploy:
 
 > serverless deploy<br />
->![loading image](https://ibb.co/0Y9sP1f) 
+>[![Capture.png](https://i.postimg.cc/vm2xM1X4/Capture.png)](https://postimg.cc/xkH131wQ)
 
 ## Todo:
 
