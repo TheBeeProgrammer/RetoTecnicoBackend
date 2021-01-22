@@ -34,14 +34,19 @@ provider:
     DEBUG: '*'
     NODE_ENV: ${self:provider.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+    EMPLOYEE_TABLE: employee
   tracing:
     lambda: true
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - xray:PutTraceSegments
-        - xray:PutTelemetryRecords
-      Resource: '*'
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.EMPLOYEE_TABLE}"
 
 functions:
   rootData:

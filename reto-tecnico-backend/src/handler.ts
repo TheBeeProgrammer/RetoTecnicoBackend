@@ -37,7 +37,7 @@ export const employeeCreate: APIGatewayProxyHandler = async (event) => {
   const employeeServiceImpl = new EmployeeServiceImpl();
   if (event.body == null) throw new Error('BODY IS EMPTY');
   await employeeServiceImpl.saveEmployee(JSON.parse(event.body) as Employee);
-  const response = { Message: 'success', Code: '200' };
+  const response = { message: 'success', code: '200' };
   return {
     statusCode: 200,
     body: JSON.stringify(response),
