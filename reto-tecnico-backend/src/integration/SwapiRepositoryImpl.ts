@@ -11,7 +11,7 @@ export class SwapiRepositoryImpl implements SwapiRepository {
     /** retorna los valores traducidos del response del api base
      * se mapea los valores originales y luego se retorna un modelo con los valores traducidos
      */
-    async getSwappiTranslatedRootResponse(): Promise<TranslateRootResponse> {
+    async getSwapiTranslatedRootResponse(): Promise<TranslateRootResponse> {
       try {
         const axiosResponse = await axios.get(this.ROOT_API_URL);
         const response = axiosResponse.data as RootResponse;
@@ -29,8 +29,7 @@ export class SwapiRepositoryImpl implements SwapiRepository {
     /** retorna los valores traducidos del response del api StarShips
      * se mapea los valores originales y luego se retorna un modelo con los valores traducidos
      */
-    // eslint-disable-next-line class-methods-use-this
-    async getSwappiTranslatedStarShipsResponse(): Promise<TranslatedStarShipsResponse> {
+    async getSwapiTranslatedStarShipsResponse(): Promise<TranslatedStarShipsResponse> {
       try {
         const axiosResponse = await axios.get(`${this.ROOT_API_URL}starships/${9}`);
         const response = axiosResponse.data as StarShipsResponse;

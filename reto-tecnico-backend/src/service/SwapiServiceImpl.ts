@@ -9,13 +9,13 @@ export class SwapiServiceImpl implements SwapiService {
 
   // eslint-disable-next-line class-methods-use-this
   async getRootData(): Promise<TranslateRootResponse> {
-    const translateRootResponse = await this.swappiRepository.getSwappiTranslatedRootResponse();
+    const translateRootResponse = await this.swappiRepository.getSwapiTranslatedRootResponse();
     console.log('Translated Response: ', translateRootResponse);
     return translateRootResponse;
   }
 
   async getStarShipsData(): Promise<TranslatedStarShipsResponse> {
-    const translatedStartShipsResponse = await this.swappiRepository.getSwappiTranslatedStarShipsResponse();
+    const translatedStartShipsResponse = await this.swappiRepository.getSwapiTranslatedStarShipsResponse();
     console.log('Translated StartShipsResponse: ', translatedStartShipsResponse);
     return translatedStartShipsResponse;
   }
