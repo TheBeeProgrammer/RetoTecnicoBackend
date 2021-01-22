@@ -6,7 +6,7 @@
 > This example is separate by different layers, domain, integration, and service.<br />
 > Domain: Contains entities, and repository interfaces.<br />
 > Service: Contains bussiness logic. <br />
-> Integration: Contains the implementations reposiotories domain layers and database logic.
+> Integration: Contains database logic.
 
 ## For code check:
 
