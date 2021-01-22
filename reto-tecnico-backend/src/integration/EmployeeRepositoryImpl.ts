@@ -4,7 +4,8 @@ import { Employee } from '../domain/repositories/model/Employee';
 
 
 export class EmployeeRepositoryImpl implements EmployeeRepository {
-    documentClient = new aws.DynamoDB.DocumentClient();
+    documentClient = new aws.DynamoDB.DocumentClient({ region: 'us-east-1' });
+
 
     async createEmployee(employee: Employee): Promise<void> {
       const params = {
@@ -15,8 +16,16 @@ export class EmployeeRepositoryImpl implements EmployeeRepository {
       console.log(data);
     }
 
-    // eslint-disable-next-line class-methods-use-this
-    getEmployee(): Promise<Employee> {
-      return Promise.resolve(undefined);
+    async getEmployee(dni: string): Promise<Employee> {
+      const params = {
+        TableName: 'employee',
+        KeyConditionExpression: 'dni = :dni',
+        ExpressionAttributeValues: {
+          ':dni': dni,
+        },
+      };
+      const data = await this.documentClient.query(params).promise();
+      if (data.Items[0] === null || data.Items[0] === undefined) throw new Error('EMPLOYEE NOT FOUND');
+      return data.Items[0] as Employee;
     }
 }

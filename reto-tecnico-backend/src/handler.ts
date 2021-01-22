@@ -46,13 +46,28 @@ export const starShips: APIGatewayProxyHandler = async (event, context) => {
   };
 };
 
-export const employeeCreate = async (event) => {
+export const employeeCreate: APIGatewayProxyHandler = async (event) => {
   console.log(event, 'event');
   const employeeServiceImpl = new EmployeeServiceImpl();
   if (event.body == null) throw new Error('BODY IS EMPTY');
   await employeeServiceImpl.saveEmployee(JSON.parse(event.body) as Employee);
-
+  const response = { Message: 'success', Code: '200' };
   return {
     statusCode: 201,
+    body: JSON.stringify(response),
+  };
+};
+
+export const getEmployee: APIGatewayProxyHandler = async (event) => {
+  console.log(event, 'event');
+  const employeeServiceImpl = new EmployeeServiceImpl();
+
+  if (event.pathParameters == null) throw new Error('EMPTY PATH PARAM');
+  const employeeResponse = await employeeServiceImpl.getEmployeeByDni(event.pathParameters.dni);
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      employeeResponse,
+    ),
   };
 };
